@@ -18,6 +18,13 @@ fo = open("/users/script.sql", "r")
 list = []
 head = fo.readline()
 print head
+for line in fo :
+    list.append(line)
+    if len(list)==1000000:
+        writetxt(list,head)
+        list = []
+if len(list) != 0 :
+    writetxt(list,head)
 
 fo.close
 
